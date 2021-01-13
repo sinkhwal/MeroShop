@@ -54,11 +54,12 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-//@description Get user profile
-//@route POST /api/users/profile
-//@access private
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
+
   if (user) {
     res.json({
       _id: user._id,
@@ -73,7 +74,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 });
 
 //@description Get user profile
-//@route POST /api/users/profile
+//@route PUT /api/users/profile
 //@access private
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
